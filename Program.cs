@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -8,6 +9,9 @@ namespace httpclient_demo
     {
         async static Task Main(string[] args)
         {
+            // Resolves DNS issue
+            ServicePointManager.DnsRefreshTimeout = 60000;
+
             for(int i = 0; i < 50; i++)
             {
                 using(HttpClient client = new HttpClient())
